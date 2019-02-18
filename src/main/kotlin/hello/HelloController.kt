@@ -4,10 +4,11 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class GreetingController {
+class GreetingController(val helloService: HelloService) {
 
     @GetMapping("/")
-    fun greeting() =
-            "Hello World"
+    fun helloKotlinService(): String {
+        return helloService.greeting()
+    }
 
 }
